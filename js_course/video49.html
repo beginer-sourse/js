@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: #212121;
+    }
+  </style>
+</head>
+<body>
+  <button id="orange">Orange</button>
+  <button id="green">Green</button>
+</body>
+<script>
+  // Lexial and closure
+
+// lexial scope
+// in this lexial scope inner function can access outer function varibales etc.
+
+
+function init() {
+  var name = "Mozilla"; // name is a local variable created by init
+  function displayName() {
+    // displayName() is the inner function, that forms a closure
+    console.log(name); // use variable declared in the parent function
+  }
+  displayName();
+}
+init(); // Mozilla
+// console.log(name); 
+// // couldn't access because it isn't in lexial scope it outer of outer scope
+
+
+function outer(){
+    let username = "hitesh"
+    // console.log("OUTER", secret); 
+    // outer function can't access inner function variable's
+    function inner(){  
+        let secret = "my123"
+        console.log("inner", username);
+    }
+    function innerTwo(){
+        console.log("innerTwo", username);
+        // console.log(secret); 
+        // functions that are in outer function can't access each other
+    }
+    inner() // inner hitesh
+    innerTwo() // innerTwo hitesh
+
+}
+outer()
+
+
+
+function makeFunc() {
+      const name = "Mozilla";
+      function displayName() {
+          console.log(name);
+      }
+      return displayName;
+  }
+
+const myFunc = makeFunc(); // in this full lexial scope get in myfun variable.
+// not the makeFun() context. remeber const myFun get lexial scope of makeFun() even after execution
+myFunc(); // Mozilla
+
+</script>
+
+<script>
+  // pratical implementaion of lexial and closure
+
+
+  // function ok1(){
+  //     document.body.style.backgroundColor= 'purple' 
+  //   }
+
+  // to don't write repeated code again that why.
+
+  function click(color){
+    function something(){
+      document.body.style.backgroundColor=  `${color}`
+    }
+    return something
+     
+  }
+  
+
+  // document.querySelector('#green').onclick=ok1
+
+
+// if  i didn't return that function then click() will be executed as soon as script 
+// will loaded that why i gave it refrence. and on click it execute
+
+  document.querySelector('#orange').onclick=click('orange')
+  document.querySelector('#green').onclick=click('green')
+
+
+
+
+</script>
+</html>

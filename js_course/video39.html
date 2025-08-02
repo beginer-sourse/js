@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: #212121;
+      color: wheat;
+    }
+  </style>
+</head>
+<!--    
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. 
+-->
+
+<body>
+
+<div>
+  <div id="photo"></div>
+  <div id="follow"></div>
+</div>
+
+</body>
+<script>
+  // .open() prepares the request. like get,post etc
+  // .send() executes the request
+
+let follow=document.querySelector('#follow')
+let photo=document.querySelector("#photo")
+
+
+const url='https://api.github.com/users/hiteshchoudhary'
+const xhr= new XMLHttpRequest()
+xhr.open('GET',url)
+
+// continue monitor ready state.
+xhr.onreadystatechange=function(){
+
+  // you can't use this in arrow function. it doesn't refer to this of that method.
+  console.log(xhr.readyState);
+  if(xhr.readyState===4){
+    let data=JSON.parse(this.responseText) // convert string data to json. it seen as object
+    console.log(typeof data);
+    console.log(data.followers);
+
+    let elements=()=>{
+      let img=document.createElement('img')
+      img.setAttribute('src',data.avatar_url)
+      photo.appendChild(img)
+      
+      follow.innerHTML=`<h1>Followers : ${data.followers}</h1>`
+    }
+    elements()
+  }
+} 
+xhr.send()
+</script>
+</html>

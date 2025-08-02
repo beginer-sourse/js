@@ -1,0 +1,87 @@
+<!-- // video 33  -->
+<!-- // create a new element in DOM -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM video33</title>
+  <style>
+    body{
+      background-color: black;
+      color: wheat;
+    }
+  </style>
+</head>
+<body>
+  <div class="parent">
+    <div class="day">monday</div>
+    <div class="day">tuesday</div>
+    <div class="day">wednesday</div>
+    <div class="day">thursday</div>
+  </div>
+</body>
+
+
+
+<script>
+  const parent = document.querySelector('.parent')
+
+  // The read-only children property returns a live HTMLCollection which contains all 
+  // of the child elements of the document upon which it was called.
+
+  console.log(parent.children); // gives collections of all children 
+  parent.children[1].innerHTML="<h1>Friday</h1>"
+  console.log(parent.children[1].innerHTML); //  <h1>Friday</h1>
+  
+  // collection is not like array. so we can't use array function 
+  // but we can use simple function 
+
+  for (let index = 0; index < parent.children.length; index++) {
+    console.log(parent.children[index]);
+    /*
+      <div>monday</div>
+      <div><h1>Friday</h1></div>
+      <div>wednesday</div>
+      <div>thursday</div>
+    */
+  }
+
+  parent.children[1].style.color="purple"
+  console.log(parent.firstElementChild ); // <div>monday</div>
+  console.log(parent.lastElementChild); // <div>thursday</div>
+  
+  console.log('\n');
+  
+
+  const day=document.querySelector('.day')
+  console.log(day); // <div>monday</div>
+  console.log(day.parentElement);
+  
+  /*
+  <div class="parent">
+    <div class="day">monday</div>
+    <div class="day" style="color: purple;"><h1>Friday</h1></div>
+    <div class="day">wednesday</div>
+    <div class="day">thursday</div>
+  </div>
+
+  */
+  
+  console.log(day.nextElementSibling); //<div class="day" style="color: purple;"><h1>Friday</h1></div>
+  
+  console.log("nodes ",parent.childNodes);
+  // five size of 9 in nodelist
+  // it also count break lines
+
+  const a=document.createAttribute("href")
+  a.value='https://www.youtube.com/watch?v=xAvTgCsCHLs&list=PLu71SKxNbfoBuX3f4EOACle2y-tRC5Q37&index=34'
+  parent.setAttribute('id','not')
+  // Set the attribute node to the element
+  parent.setAttributeNode(a)
+  console.log(parent.getAttribute('id'));
+  
+</script>
+</html>
+

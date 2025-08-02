@@ -1,0 +1,70 @@
+<!-- video 34 edit and remove elments in DOM -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+  <style>
+    body{
+      background-color: #212121;
+      color: white;
+    }
+  </style>
+</head>
+ <body>
+  <ul class="lang">
+    <li>js</li>
+  </ul>
+ </body>
+
+ <script>
+  // In this there is traversing in whole tree. so this way is not 
+  // optimal 
+
+  const fun1=(lang)=>{
+    const l1=document.createElement('li')
+    l1.innerHTML=`<h1>${lang}</h1>`
+    document.querySelector(".lang").appendChild(l1) 
+  }
+  fun1('Python')
+  fun1('typeScript')
+
+  // this method is optimal
+  const fun2=(lang)=>{
+    const li=document.createElement('li')
+    li.appendChild(document.createTextNode(`<h1>${lang}</h1>`))
+    document.querySelector('.lang').appendChild(li)
+  }
+   // it give li in form of <h1>Java</h1>
+
+   // document.createTextNode treats its argument as plain text, not HTML.
+
+  fun2("Java")
+
+
+  // Edit
+
+  const secLang=document.querySelector('li:nth-child(3)')
+  secLang.innerHTML="C++"
+
+  const new1=document.createElement('li')
+  new1.textContent="<h1>Interesting</h1>"
+  secLang.replaceWith(new1) // <h1>Interesting</h1>
+
+
+  // Edit
+
+  const new2=document.querySelector('li:first-child')
+  new2.outerHTML='<li><h1>JavaScript</h1></li>'
+
+  // outer HTML 
+  // it's a property used to get or replace an element's entire HTML, including the element itself.
+
+  // remove
+  const new3=document.querySelector('li:last-child') 
+  new3.remove()
+
+
+ </script>
+ </html>

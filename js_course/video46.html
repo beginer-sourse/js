@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bind</title>
+  <style>
+    body{background-color: #212121;}
+  </style>
+</head>
+<body>
+  <button>Button</button>
+</body>
+<script>
+
+class React {
+  constructor(){
+    this.library = "React"
+    this.server = "https://localhost:300"
+
+// bind() = "Create a new version of this function where this always refers to that object."
+
+
+/*
+this.handleClick is extracted as a reference (not called yet).
+
+When the button is clicked, the browser says:
+"Hey, I’ll call this function now — and set this to the button, because it's a DOM event handler."
+
+So inside handleClick, this === <button> instead of your class instance.
+ */
+    document
+      .querySelector('button') // bind(this) creates a new version of the function where this is permanently 
+      // set to the value you pass (in this case, the class instance).
+      .addEventListener('click', this.handleClick.bind(this)) // we bind (this) to react's new instance
+// bind() lets you control what {this} refers to when a function is called.
+
+/*
+When this.handleClick is passed directly to addEventListener, it loses context.
+
+So inside handleClick, this no longer refers to your class — it refers to the button element.
+
+Result: this.server becomes undefined.
+*/
+    }
+    handleClick(){
+        console.log("button clicked");
+        console.log(this.server);
+    }
+}
+
+const app = new React()
+// console.log(app.server);
+
+    
+</script>
+</html>

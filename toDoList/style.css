@@ -1,0 +1,50 @@
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+/* 
+  *{} // this is used to select all elements.
+
+  By default, CSS calculates width and height only for the content, and padding
+  and border are added outside of that — which often causes layout issues.
+  Padding and border are included inside the specified width and height.
+*/
+
+:root{
+  --background: #000430;
+  --text:#ffffff;
+  --secondaryBackground:#171c48;
+  --teal:#24feee;
+  --purple: #828dff;
+}
+
+/* It's often used to define CSS custom properties (variables) globally.
+
+:root is a pseudo-class selector that matches the highest-level parent in your HTML —
+ usually the <html> element. 
+
+ -- this is how you declare css variable.
+
+ var() is used to access a CSS (variable) (also called a custom property) that you’ve 
+ defined using the -- syntax.
+ */
+
+
+ /* --secondarybackground for boxes/cards */
+
+ /*
+--text is a variable name.
+color is the actual CSS property.
+ */
+
+body{
+  background-color: var(--background);
+  color: var(--text);
+}
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+}

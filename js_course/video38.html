@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body{
+      background-color: black;
+      color: wheat;
+    }
+  </style>
+</head>
+<body>
+  <h1>This is testing for settimeout </h1>
+   <button id="start">start</button>
+  <button id="stop">stop for clearTimeout</button>
+   <button id="stop1">stop for clearInterval</button>
+</body>
+<script>
+   // settimeout , cleartimeout (Used when you want to stop something from running once after a delay)
+   // setinterval , clearInterval (Used when you want to stop something running again and again)
+
+
+
+  let h1=document.querySelector('h1')
+  let fun1=()=>{
+    console.log(`changed ok`);
+    
+    h1.innerHTML="settimeout"
+  }
+  
+
+  // example where settimeout are used are in login/logout lets say you are logedin and every 5s you have to move
+  // mouse to remain login to cleartimout before setimeout log you out.
+  // setimeout execute only once and setinterval execute multiple time. 
+   
+  let fun2=(str)=>{
+    console.log(`${str} changed`);
+    
+  }
+
+  // give function refrence not execution. fun not fun() in settimeout.
+  // clearTimeout(setTime) // clear the settimeout before excute
+  
+  let setTime;
+  let setInt;
+
+  document.querySelector('#start').addEventListener('click',()=>{
+    setTime=setTimeout(fun1,3000) // setimeout can be stored in variable and excute.
+    setInt=setInterval(fun2,2000,'god')
+
+  })
+
+  document.querySelector('#stop').addEventListener('click',()=>{
+    console.log('this is cleartimeout');
+    clearTimeout(setTime) // you cancel thesetimeout before it happens.
+  })
+
+
+  document.querySelector("#stop1").addEventListener('click',()=>{
+    clearInterval(setInt)
+  })
+
+</script>
+</html>

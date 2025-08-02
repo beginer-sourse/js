@@ -1,0 +1,60 @@
+<!--  video 33 part 2 
+  // create element
+  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Part2</title>
+  <style>
+    body{
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+  
+</body>
+<script>
+  const div=document.createElement("div")
+  div.className="firstDiv"
+  div.id="firstId"
+  div.style.backgroundColor='gray'
+  div.style.color='white'
+  div.innerText="hello "
+  div.setAttribute('title',"Big Hello")
+
+  const c=document.createTextNode("Hello World")
+  div.appendChild(c)
+ 
+  // document.createTextNode treats its argument as plain text, not HTML.
+
+  document.body.appendChild(div)
+
+
+  // you can use createTextNode it is like setAttribute in place of
+  // innerText it is more optmize beacuse it puts value direct in attribute
+  // unlike innerText it takes refrence of value and the put it.
+
+  for (let index = 0; index < 10; index++) {
+    
+    const div=document.createElement("div")
+    div.className="firstDiv"
+    div.id="firstId"
+    div.style.backgroundColor='gray'
+    div.style.color='white'
+    div.innerText="hello"
+    div.style.margin='20px';
+    document.body.appendChild(div) 
+    
+  }
+
+  const body=document.querySelector('body')
+  console.log(body.childNodes) // always comes in nodeList
+  console.log(body.children[8].innerHTML="<h1>Good morning</h1>");
+  
+  console.log(div);
+</script>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Intro</title>
+  <style>
+    .Bg_body{
+      background-color: #212121;
+      color: white;
+    }
+  </style>
+</head>
+<body class="Bg_body">
+  <h1 id=heading class="firstHeading" style="background-color: black; color:white;">First Heading <span style="display: none;">something</span></h1>
+  <p class="first_para">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Cumque quam quo quos tempore voluptatum, iste perspiciatis sed obcaecati! Delectus porro aut repudiandae, perferendis vero rem sequi vitae consectetur tenetur expedita.
+  </p>
+  <ul class="ul_li">
+    <li class="li-item">1</li>
+    <li class="li-item">2</li>
+    <li class="li-item">3</li>
+  </ul>
+
+<!--
+  window  // window have many objects and document is one of them
+  document
+  html 
+
+  head - attribute 
+  titile
+
+  body
+  h1 - attribute 
+  p -attribute
+
+
+  // collections is not array. nodelist, collection and array all are different you can convert them into array
+  // node List have   ------------   forEach function --------------
+
+  // In getelementById you can use tag name like p,h1,input etc.
+
+
+  // document.getElementById("firstHeading").innerHTML="<h1>First time</>"
+  // document.getElementById("h1").getAttribute('id')
+  // document.getElementById("h1").setAttribute('id',"title")
+  // document.getElementById('h1').style.backgroundColor="purple"
+
+  // document.getElementByClassName('li-item')
+
+  const title=document.getElementById('h1')
+
+  title.textContent // it shows whole content that is wriiten // >First Heading something 
+  title.innerHTML
+  title.innerText // in this it shows only content that is visible on document //'First Heading'
+
+
+    // query Selector
+
+    // the Document method querySelector() returns the first Element within the 
+    document that matches the specified CSS selector, or group of CSS selectors.
+     If no matches are found, null is returned.
+
+     document.querySelector('p')
+     document.querySelector('.className')
+     document.querySelector('#id')
+
+    // query Selector All
+
+     const t=document.querySelectorAll('li') // it gives nodelist it not as same as array.
+     t[1].style.color='purple'
+
+
+     // collections get converted in array to use array function
+     const b=Array.from(a)
+  -->
+</body>
+</html>
