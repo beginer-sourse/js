@@ -1,4 +1,7 @@
-// video 28 // filter ,map and reduce
+// video 28 // filter ,map and reduce  
+
+// return () not return
+
 
 let arr1=[1,2,3,4,5,6,7,8,9,10]
 arr1.forEach((i)=>{
@@ -13,12 +16,14 @@ console.log('\n');
 // filter create shadow copy of given arrays.
 // needs callback function
 // filter returns what you seek (gives only true value according to condition)
+
+
 // In this we use implicit arrow function
-let f1=arr1.filter( (item)=>(item>4)) // it will returns the value
+let f1=arr1.filter( (item)=>(item>4)) // it will automatically returns the value
 console.log(f1); // [ 5, 6, 7, 8, 9, 10 ]
  
 
-// In explit arrow function you have to always return it
+// In explit arrow function you have to always use {return} keyword to return.
 
 // but when we use explict arrow function
 let f2=arr1.filter((item)=>{item>7}) // it return [] because of {} [curly brackets] creates scope 
